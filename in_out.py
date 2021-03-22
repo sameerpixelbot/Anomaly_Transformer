@@ -16,7 +16,7 @@ class input_transformer(tf.keras.layers.Layer):
 
         return inp
 
-class output_transformer(tf.keras.layers):
+class output_transformer(tf.keras.layers.Layer):
 
     def __init__(self,num_of_outputs):
 
