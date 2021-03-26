@@ -27,4 +27,4 @@ class Transformer(tf.keras.Model):
     final_output = self.final_layer(enc_output)  # (batch_size, tar_seq_len, target_vocab_size)
     final_output = self.out_tran(final_output)
 
-    return final_output, attention_weights
+    return final_output, 0
