@@ -57,7 +57,7 @@ class MultiHeadAttention(tf.keras.layers.Layer):
     Transpose the result such that the shape is (batch_size, num_heads, seq_len, depth)
     """
     x = tf.reshape(x, (-1, self.num_heads, self.depth))
-    return tf.transpose(x)
+    return tf.transpose(x,perm=[1,0,2])
 
   def call(self, v, k, q, mask):
     #batch_size = tf.shape(q)[0]
@@ -76,7 +76,7 @@ class MultiHeadAttention(tf.keras.layers.Layer):
     scaled_attention, attention_weights = scaled_dot_product_attention(
         q, k, v, mask)
 
-    scaled_attention = tf.transpose(scaled_attention)  # (batch_size, seq_len_q, num_heads, depth)
+    scaled_attention = tf.transpose(scaled_attention,perm=[1,0,2])  # (batch_size, seq_len_q, num_heads, depth)
 
     concat_attention = tf.reshape(scaled_attention, 
                                   (-1, self.d_model))  # (batch_size, seq_len_q, d_model)
