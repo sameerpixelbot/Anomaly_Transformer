@@ -2,10 +2,10 @@ import tensorflow as tf
 from attention import scaled_dot_product_attention,MultiHeadAttention,point_wise_feed_forward_network
 
 class EncoderLayer(tf.keras.layers.Layer):
-  def __init__(self, d_model, num_heads, dff, rate=0.1):
+  def __init__(self, d_model, num_heads, num_parts, dff, rate=0.1):
     super(EncoderLayer, self).__init__()
 
-    self.mha = MultiHeadAttention(d_model, num_heads)
+    self.mha = MultiHeadAttention(d_model, num_heads, num_parts)
     self.ffn = point_wise_feed_forward_network(d_model, dff)
 
     self.layernorm1 = tf.keras.layers.LayerNormalization(epsilon=1e-6)
@@ -27,7 +27,7 @@ class EncoderLayer(tf.keras.layers.Layer):
     return out2
 
 class Encoder(tf.keras.layers.Layer):
-  def __init__(self, num_layers, d_model, num_heads, dff, rate=0.1):
+  def __init__(self, num_layers, d_model, num_heads, num_parts, dff, rate=0.1):
     super(Encoder, self).__init__()
 
     self.d_model = d_model
@@ -38,7 +38,7 @@ class Encoder(tf.keras.layers.Layer):
     #                                         self.d_model)
 
 
-    self.enc_layers = [EncoderLayer(d_model, num_heads, dff, rate) 
+    self.enc_layers = [EncoderLayer(d_model, num_heads, num_parts, dff, rate) 
                        for _ in range(num_layers)]
 
     self.dropout = tf.keras.layers.Dropout(rate)

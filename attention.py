@@ -37,10 +37,11 @@ def scaled_dot_product_attention(q, k, v, mask):
   return output, attention_weights
 
 class MultiHeadAttention(tf.keras.layers.Layer):
-  def __init__(self, d_model, num_heads):
+  def __init__(self, d_model, num_heads, num_parts):
     super(MultiHeadAttention, self).__init__()
     self.num_heads = num_heads
     self.d_model = d_model
+    self.num_parts = num_parts
 
     assert d_model % self.num_heads == 0
 
@@ -70,6 +71,10 @@ class MultiHeadAttention(tf.keras.layers.Layer):
     q = self.split_heads(q, 1)  # (batch_size, num_heads, seq_len_q, depth)
     k = self.split_heads(k, 1)  # (batch_size, num_heads, seq_len_k, depth)
     v = self.split_heads(v, 1)  # (batch_size, num_heads, seq_len_v, depth)
+
+    q = tf.reshape(q,(-1,self.num_parts,self.depth//self.num_parts))
+    k = tf.reshape(k,(-1,self.num_parts,self.depth//self.num_parts))
+    v = tf.reshape(v,(-1,self.num_parts,self.depth//self.num_parts))
 
     # scaled_attention.shape == (batch_size, num_heads, seq_len_q, depth)
     # attention_weights.shape == (batch_size, num_heads, seq_len_q, seq_len_k)

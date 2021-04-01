@@ -3,11 +3,11 @@ from encoder import Encoder
 from in_out import input_transformer,output_transformer
 
 class Transformer(tf.keras.Model):
-  def __init__(self, num_layers, d_model, num_heads, dff, target_size, num_of_outputs, rate=0.1):
+  def __init__(self, num_layers, d_model, num_heads, num_parts, dff, target_size, num_of_outputs, rate=0.1):
     super(Transformer, self).__init__()
 
     self.inp_tran = input_transformer(d_model)
-    self.encoder = Encoder(num_layers, d_model, num_heads, dff, rate)
+    self.encoder = Encoder(num_layers, d_model, num_heads, num_parts, dff, rate)
     self.out_tran = output_transformer(num_of_outputs)
 
     # self.decoder = Decoder(num_layers, d_model, num_heads, dff, 
