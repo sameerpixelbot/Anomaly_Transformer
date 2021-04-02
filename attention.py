@@ -1,6 +1,6 @@
 import tensorflow as tf
 
-def scaled_dot_product_attention(q, k, v, mask):
+def scaled_dot_product_attention(q, k, v):
   """Calculate the attention weights.
   q, k, v must have matching leading dimensions.
   k, v must have matching penultimate dimension, i.e.: seq_len_k = seq_len_v.
@@ -25,8 +25,8 @@ def scaled_dot_product_attention(q, k, v, mask):
   scaled_attention_logits = matmul_qk / tf.math.sqrt(dk)
 
   # add the mask to the scaled tensor.
-  if mask is not None:
-    scaled_attention_logits += (mask * -1e9)  
+  #if mask is not None:
+  #  scaled_attention_logits += (mask * -1e9)  
 
   # softmax is normalized on the last axis (seq_len_k) so that the scores
   # add up to 1.
@@ -60,7 +60,7 @@ class MultiHeadAttention(tf.keras.layers.Layer):
     x = tf.reshape(x, (-1, self.num_heads, self.depth))
     return tf.transpose(x,perm=[1,0,2])
 
-  def call(self, v, k, q, mask):
+  def call(self, v, k, q):
     #batch_size = tf.shape(q)[0]
 
 
@@ -79,7 +79,7 @@ class MultiHeadAttention(tf.keras.layers.Layer):
     # scaled_attention.shape == (batch_size, num_heads, seq_len_q, depth)
     # attention_weights.shape == (batch_size, num_heads, seq_len_q, seq_len_k)
     scaled_attention, attention_weights = scaled_dot_product_attention(
-        q, k, v, mask)
+        q, k, v)
 
     scaled_attention = tf.transpose(scaled_attention,perm=[1,0,2])  # (batch_size, seq_len_q, num_heads, depth)
 

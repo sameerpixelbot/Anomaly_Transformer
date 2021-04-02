@@ -18,7 +18,7 @@ class Transformer(tf.keras.Model):
   def call(self, inp, training):
 
     inp = self.inp_tran(inp)
-    enc_output = self.encoder(inp, training, enc_padding_mask)  # (batch_size, inp_seq_len, d_model)
+    enc_output = self.encoder(inp, training)  # (batch_size, inp_seq_len, d_model)
 
     # dec_output.shape == (batch_size, tar_seq_len, d_model)
     # dec_output, attention_weights = self.decoder(
