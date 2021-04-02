@@ -15,7 +15,7 @@ class Transformer(tf.keras.Model):
 
     self.final_layer = tf.keras.layers.Dense(target_size)
 
-  def call(self, inp, tar, training, enc_padding_mask):
+  def call(self, inp, training):
 
     inp = self.inp_tran(inp)
     enc_output = self.encoder(inp, training, enc_padding_mask)  # (batch_size, inp_seq_len, d_model)
