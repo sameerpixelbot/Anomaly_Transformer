@@ -27,6 +27,7 @@ class output_transformer(tf.keras.layers.Layer):
     
     def call(self,out):
 
+        out=tf.reshape(out,shape=(1,out.shape[0]*out.shape[1]))
         out=self.o1(out)
         out=self.o2(out)
         out=tf.nn.softmax(out, axis=-1)

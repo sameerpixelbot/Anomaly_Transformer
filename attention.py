@@ -72,9 +72,9 @@ class MultiHeadAttention(tf.keras.layers.Layer):
     k = self.split_heads(k, 1)  # (batch_size, num_heads, seq_len_k, depth)
     v = self.split_heads(v, 1)  # (batch_size, num_heads, seq_len_v, depth)
 
-    q = tf.reshape(q,(-1,self.num_parts,self.depth//self.num_parts))
-    k = tf.reshape(k,(-1,self.num_parts,self.depth//self.num_parts))
-    v = tf.reshape(v,(-1,self.num_parts,self.depth//self.num_parts))
+    # q = tf.reshape(q,(-1,self.num_parts,self.depth//self.num_parts))
+    # k = tf.reshape(k,(-1,self.num_parts,self.depth//self.num_parts))
+    # v = tf.reshape(v,(-1,self.num_parts,self.depth//self.num_parts))
 
     # scaled_attention.shape == (batch_size, num_heads, seq_len_q, depth)
     # attention_weights.shape == (batch_size, num_heads, seq_len_q, seq_len_k)
