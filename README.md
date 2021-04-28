@@ -7,15 +7,6 @@
 This is our Final year project in BTech at [NIT Warangal](https://nitw.ac.in/main/).  
 We are a team of three members [N Sai Shashank](https://www.linkedin.com/in/sai-shashank-n-370b6b155/), [M Sameer Ahmed](https://www.linkedin.com/in/sameer-ahmed-802195195/), [K Praneeth Reddy](https://www.linkedin.com/in/praneeth-kunduru-69797614b/). Here is the [paper]() submitted at [IEEE International Conference on Automatic Face and Gesture Recognition 2021](http://iab-rubric.org/fg2021/#:~:text=FG%202021%20IEEE%20International%20Conference%20on%20Automatic%20Face,and%20video-based%20face%2C%20gesture%2C%20and%20body%20movement%20recognition.).
 
-# Anomaly Detection
-
-> **Detecting anomalies in public area using human action recognition**
-
-## Note 
-
-This is our Final year project in BTech at [NIT Warangal](https://nitw.ac.in/main/).  
-We are a team of three members [N Sai Shashank](https://www.linkedin.com/in/sai-shashank-n-370b6b155/), [M Sameer Ahmed](https://www.linkedin.com/in/sameer-ahmed-802195195/), [K Praneeth Reddy](https://www.linkedin.com/in/praneeth-kunduru-69797614b/). Here is the [paper]() submitted at [IEEE International Conference on Automatic Face and Gesture Recognition 2021](http://iab-rubric.org/fg2021/#:~:text=FG%202021%20IEEE%20International%20Conference%20on%20Automatic%20Face,and%20video-based%20face%2C%20gesture%2C%20and%20body%20movement%20recognition.).
-
 ## Introduction 
 
 Due to the recent events of Covid-19, It has become very important to maintain good health and fitness. It has also become very important to monitor public areas to detect any sorts of symptoms related to any type of Disease, not just symptoms regarding diseases but also for there physical well being. So the project attempts to solve the above needs. In an attempt to solve the problem in a novel way and looking at the recent performance of models like GPT-3 we decided to make a transformer based model in order to solve the problem.
