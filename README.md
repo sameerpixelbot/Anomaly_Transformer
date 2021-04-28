@@ -9,7 +9,7 @@ We are a team of three members [N Sai Shashank](https://www.linkedin.com/in/sai-
 
 ## Introduction 
 
-Due to the recent events of Covid-19, It has become very important to maintain good health and fitness. It has also become very important to monitor public areas to detect any sorts of symptoms related to any type of Disease, not just symptoms regarding diseases but also for there physical well being. So the project attempts to solve the above needs. In an attempt to solve the problem in a novel way and looking at the recent performance of models like GPT-3 we decided to make a transformer based model in order to solve the problem.
+Due to the recent events of Covid-19, It has become very important to maintain good health and fitness. It has also become very important to monitor public areas to detect any sorts of symptoms related to any type of Disease, not just symptoms regarding diseases but also for there physical well being. So the project attempts to solve the above needs. In an attempt to solve the problem in a novel way and looking at the recent popularity of transformer based models like GPT-3 we decided to make a transformer based model in order to solve the problem.
 
 ## Dataset 
 
@@ -38,12 +38,26 @@ Transformer based models are best known for sequence to sequence translation. So
 
 Once we extract the key point embeddings of each video we form an input tensor of shape 15x34 where 15 corresponds to the frames and 34 is the co-ordinates, HR-Net outputs 17 key points so 17*2=34 co-ordinates. The output is a tensor of shape 1x7 here it is in one hot encoding. The model was then trained on colab.
 
-**So once trained on the data the model gave an accuracy of 95% on training data. Looking at this high performance we trained for up to 60 classes then reached an accuracy of 94%**
+**So once trained on the data the [model](https://github.com/sameerpixelbot/Anomaly_Transformer/blob/master/Training%20and%20Testing%20Notebooks/7classes.ipynb) gave an accuracy of 95% on training data.** 
+
+![Training accuracy for 7 classes](images/7class_model_training_accuracy.PNG)
+
+
+**Looking at this high performance we trained an other [model](https://github.com/sameerpixelbot/Anomaly_Transformer/blob/master/Training%20and%20Testing%20Notebooks/60classes.ipynb) for up to 60 classes then reached an accuracy of 94%**
+
+![Training accuracy for 60 classes](images/60class_model_training_accuracy.PNG)
 
 ## Testing
 
-**Our test data consisted of 280 videos and 7 classes. The first model gave an accuracy of 87%.  
-The second model on the same testing data gave and accuracy of 63%**.
+**Our test data consisted of 280 videos and 7 classes.**  
+![Testing data distribution](images/testdata_distribution.png)
+
+**The first model gave an accuracy of 87%.**  
+![Distribution of predictions by 7 class model](images/7class_model_testdata_distribution.png)
+![Classification report for 7 class model](images/7class_clasificationreport.PNG)  
+**The second model on the same testing data gave and accuracy of 63%**.
+![Distribution of predictions by 60 class model](images/60class_model_testdata_distribution.png)
+![Classification report for 60 class model](images/60class_clisificationreport.PNG)
 
 ## Technologies used
 
@@ -52,5 +66,5 @@ The second model on the same testing data gave and accuracy of 63%**.
 
 ## Future scope
 
-- Trying to do predictions for up to 120 classes
-- Real time predictions
+- Train model on more diverse dataset
+- Make a deployable version of the project for real time predictions
