@@ -5,7 +5,7 @@
 ## Note 
 
 This is our Final year project in BTech at [NIT Warangal](https://nitw.ac.in/main/).  
-We are a team of three members [N Sai Shashank](https://www.linkedin.com/in/sai-shashank-n-370b6b155/), [M Sameer Ahmed](https://www.linkedin.com/in/sameer-ahmed-802195195/), [K Praneeth Reddy](https://www.linkedin.com/in/praneeth-kunduru-69797614b/). Here is the [paper]() submitted at [IEEE International Conference on Automatic Face and Gesture Recognition 2021](http://iab-rubric.org/fg2021/#:~:text=FG%202021%20IEEE%20International%20Conference%20on%20Automatic%20Face,and%20video-based%20face%2C%20gesture%2C%20and%20body%20movement%20recognition.).
+We are a team of three members [N Sai Shashank](https://www.linkedin.com/in/sai-shashank-n-370b6b155/), [M Sameer Ahmed](https://www.linkedin.com/in/sameer-ahmed-802195195/), [K Praneeth Reddy](https://www.linkedin.com/in/praneeth-kunduru-69797614b/). Here is the [paper](https://github.com/sameerpixelbot/Anomaly_Transformer/blob/master/conf_paper.pdf) submitted at [IEEE International Conference on Automatic Face and Gesture Recognition 2021](http://iab-rubric.org/fg2021/#:~:text=FG%202021%20IEEE%20International%20Conference%20on%20Automatic%20Face,and%20video-based%20face%2C%20gesture%2C%20and%20body%20movement%20recognition.).
 
 ## Introduction 
 
